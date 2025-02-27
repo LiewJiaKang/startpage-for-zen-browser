@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1951530bfb.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Hello</title>
+    <style>
+      body {
+        overflow: hidden;
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        height: 100vh;
+        align-items: center;
+        color: white;
+        font-family: SF Pro Display;
+        flex-direction: column;
+      }
+
+      .time {
+        font-size: 4em;
+        filter: drop-shadow(0 0 10px #ffffff66);
+      }
+
+      .searchform {
+        display: flex;
+        justify-content: center;
+      }
+
+      .search {
+        all: unset;
+        font-size: 1.5em;
+        border: 0px solid white;
+        color: white;
+        border-bottom-width: 1px;
+        background-color: transparent;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .social-links {
+        width: 300px;
+        padding-top: 1rem;
+        display: flex;
+        color: #aaaaaa;
+        justify-content: space-evenly;
+      }
+
+      .social-links a {
+        all: unset;
+        background-color: rgba(100, 100, 100, 0.3);
+        padding: 10px;
+        width: 100%;
+        text-align: center;
+        margin-inline: 5px;
+        border-radius: 10px;
+        box-shadow: 4px 4px 4px #00000088;
+      }
+
+      .social-links i {
+        font-size: 3em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="time"></h1>
+      <form
+        action="https://www.google.com/search"
+        class="searchform"
+        method="get"
+        name="searchform"
+      >
+        <input
+          autocomplete="on"
+          class="form-control search"
+          name="q"
+          placeholder="Search with Google"
+          required="required"
+          type="text"
+        />
+      </form>
+      <div class="social-links">
+        <a href="https://www.instagram.com/">
+          <i class="fa-brands fa-instagram"></i>
+        </a>
+        <a href="https://www.reddit.com/">
+          <i class="fa-brands fa-reddit"></i>
+        </a>
+        <a href="https://www.youtube.com/">
+          <i class="fa-brands fa-youtube"></i>
+        </a>
+      </div>
+    </div>
+
+    <script>
+      document.onkeyup = function (e) {
+        document.querySelector(".search").focus();
+      };
+      function timeNow() {
+        var d = new Date(),
+          h = (d.getHours() < 10 ? "0" : "") + d.getHours(),
+          m = (d.getMinutes() < 10 ? "0" : "") + d.getMinutes();
+        return h + ":" + m;
+      }
+      document.querySelector(".time").innerHTML = timeNow();
+      setInterval(function () {
+        document.querySelector(".time").innerHTML = timeNow();
+      }, 1000);
+    </script>
+  </body>
+</html>
